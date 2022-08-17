@@ -24,6 +24,6 @@ export class UserController {
   getOne(
     @Query() idDto: RegisterUserDto
   ) {
-    return this.userService.getOne(idDto)
+    return this.userService.findAll(idDto)
   }
 }
