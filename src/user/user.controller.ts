@@ -1,4 +1,10 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import {
+  Controller,
+  Body,
+  Query,
+  Get,
+  Post,
+} from '@nestjs/common';
 import { ApiOperation, ApiTags } from '@nestjs/swagger';
 
 import { RegisterUserDto } from '../types/user.dto'
@@ -13,4 +19,11 @@ export class UserController {
     return this.userService.register(user);
   }
 
+
+  @Get('info')
+  getOne(
+    @Query() idDto: RegisterUserDto
+  ) {
+    return this.userService.getOne(idDto)
+  }
 }
